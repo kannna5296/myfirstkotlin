@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "2.6.3"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	id ("org.flywaydb.flyway") version "6.2.2"
 	kotlin("jvm") version "1.6.10"
 	kotlin("plugin.spring") version "1.6.10"
 	kotlin("plugin.jpa") version "1.6.10"
@@ -54,18 +55,18 @@ tasks.withType<Test> {
 
 //DBサーバ作成
 tasks.register("runup", Exec::class) {
-	commandLine = "docker-compose up -d".split(" ")
+	commandLine("docker-compose", "up", "-d")
 }
 
 //DB作成
 tasks.register("createDb", Exec::class) {
 	//TODO 可変にしたい
-	val sql = "CREATE DATABASE test"
-	commandLine = "docker exec -i".split(" ") + " " + sql
+	commandLine("docker", "exec", "-i", "mssql", "/opt/mssql-tools/bin/sqlcmd", "-U", "sa", "-P", "passWord567", "-Q", "CREATE DATABASE test")
 }
 
-//flyway {
-//	url = 'jdbc:sqlserver://localhost:1433;databaseName=test;loginTimeout=30;socketTimeout=30000'
-//	user = db_user
-//	password = db_password
-//}
+//Flyway接続先
+flyway {
+	url = "jdbc:sqlserver://localhost:1433;databaseName=test;loginTimeout=30;socketTimeout=30000"
+	user = "sa"
+	password = "passWord567"
+}
