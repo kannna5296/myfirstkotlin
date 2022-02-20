@@ -1,4 +1,4 @@
-CREATE TABLE [dbo].[idea](
+CREATE TABLE [dbo].[diary](
     [id] [int] IDENTITY(1, 1) NOT NULL,
     [author_name] [nvarchar](50) NOT NULL,
     [content] [nvarchar](140) NOT NULL,

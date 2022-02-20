@@ -37,6 +37,7 @@ dependencies {
 	runtimeOnly("com.microsoft.sqlserver:mssql-jdbc")
 	annotationProcessor("org.projectlombok:lombok")
 	implementation("org.flywaydb:flyway-core")
+	implementation ("joda-time:joda-time:2.3")
 
 	//testImplementation ("com.github.springtestdbunit:spring-test-dbunit")
 	//testImplementation ("org.dbunit:dbunit")
