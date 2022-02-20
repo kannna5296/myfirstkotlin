@@ -58,6 +58,11 @@ tasks.register("runup", Exec::class) {
 	commandLine("docker-compose", "up", "-d")
 }
 
+//DBサーバ作成
+tasks.register("rundown", Exec::class) {
+	commandLine("docker-compose", "down")
+}
+
 //DB作成
 tasks.register("createDb", Exec::class) {
 	//TODO 可変にしたい
