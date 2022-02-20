@@ -18,4 +18,5 @@ data class Diary(
     var id: Int,
     var authorName: String,
     var content: String,
-    var createdAt: DateTime)
+    var createdAt: DateTime,
+    var updatedAt: DateTime)
