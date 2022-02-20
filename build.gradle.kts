@@ -33,8 +33,12 @@ dependencies {
 	runtimeOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	compileOnly("org.projectlombok:lombok")
-	//runtimeOnly("com.microsoft.sqlserver:mssql-jdbc")
+	runtimeOnly("com.microsoft.sqlserver:mssql-jdbc")
 	annotationProcessor("org.projectlombok:lombok")
+	implementation("org.flywaydb:flyway-core")
+
+	//testImplementation ("com.github.springtestdbunit:spring-test-dbunit")
+	//testImplementation ("org.dbunit:dbunit")
 }
 
 tasks.withType<KotlinCompile> {
@@ -47,3 +51,21 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+//DBサーバ作成
+tasks.register("runup", Exec::class) {
+	commandLine = "docker-compose up -d".split(" ")
+}
+
+//DB作成
+tasks.register("createDb", Exec::class) {
+	//TODO 可変にしたい
+	val sql = "CREATE DATABASE test"
+	commandLine = "docker exec -i".split(" ") + " " + sql
+}
+
+//flyway {
+//	url = 'jdbc:sqlserver://localhost:1433;databaseName=test;loginTimeout=30;socketTimeout=30000'
+//	user = db_user
+//	password = db_password
+//}
