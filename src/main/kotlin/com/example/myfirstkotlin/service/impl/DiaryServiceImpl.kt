@@ -1,7 +1,8 @@
-package com.example.myfirstkotlin.service
+package com.example.myfirstkotlin.service.impl
 
 import com.example.myfirstkotlin.entity.Diary
 import com.example.myfirstkotlin.repository.DiaryRepository
+import com.example.myfirstkotlin.service.DiaryService
 import org.springframework.stereotype.Service
 
 @Service
