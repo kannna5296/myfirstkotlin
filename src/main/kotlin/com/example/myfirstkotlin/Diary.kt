@@ -2,7 +2,7 @@ package com.example.myfirstkotlin
 
 import lombok.Getter
 import lombok.Setter
-import org.joda.time.DateTime
+import java.sql.Timestamp
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
@@ -18,5 +18,5 @@ data class Diary(
     var id: Int,
     var authorName: String,
     var content: String,
-    var createdAt: DateTime,
-    var updatedAt: DateTime)
+    var createdAt: Timestamp,
+    var updatedAt: Timestamp)

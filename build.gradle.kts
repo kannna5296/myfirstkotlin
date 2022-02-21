@@ -36,7 +36,6 @@ dependencies {
 	runtimeOnly("com.microsoft.sqlserver:mssql-jdbc")
 	annotationProcessor("org.projectlombok:lombok")
 	implementation("org.flywaydb:flyway-core")
-	implementation ("joda-time:joda-time:2.3")
 
 	implementation("com.fasterxml.jackson.core:jackson-databind:2.11.2")
 	implementation("com.fasterxml.jackson.core:jackson-core:2.11.2")
