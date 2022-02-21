@@ -1,4 +1,4 @@
-package com.example.myfirstkotlin
+package com.example.myfirstkotlin.entity
 
 import lombok.Getter
 import lombok.Setter
