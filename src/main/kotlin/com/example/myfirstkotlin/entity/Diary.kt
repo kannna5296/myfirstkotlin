@@ -13,13 +13,18 @@ import javax.validation.constraints.Size
 @Getter
 @Setter
 @Table(name = "diary")
-data class Diary(
+class Diary(
     @Id
     @GeneratedValue
-    var id: Int,
+    var id: Int?,
     @Size(max = 50)
     var authorName: String,
     @Size(max = 140)
     var content: String,
-    var createdAt: Timestamp,
-    var updatedAt: Timestamp)
+    var createdAt: Timestamp?,
+    var updatedAt: Timestamp?) {
+
+//    constructor(authorName: String, content: String) : this(authorName, content, null, ) {
+//
+//    }
+}

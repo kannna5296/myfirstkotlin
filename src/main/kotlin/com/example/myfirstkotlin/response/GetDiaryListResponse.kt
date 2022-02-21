@@ -2,5 +2,5 @@ package com.example.myfirstkotlin.response
 
 import com.example.myfirstkotlin.entity.Diary
 
-data class DiaryListResponse(
+data class GetDiaryListResponse(
     val diaries: List<Diary>)
