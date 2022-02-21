@@ -10,8 +10,6 @@ import javax.persistence.Table
 import javax.validation.constraints.Size
 
 @Entity
-@Getter
-@Setter
 @Table(name = "diary")
 class Diary(
     @Id

@@ -1,6 +1,7 @@
 package com.example.myfirstkotlin.controller
 
 import com.example.myfirstkotlin.request.CreateDiaryRequest
+import com.example.myfirstkotlin.response.CreateDiaryResponse
 import com.example.myfirstkotlin.response.GetDiaryListResponse
 import com.example.myfirstkotlin.service.DiaryService
 import org.springframework.http.ResponseEntity
