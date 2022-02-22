@@ -7,6 +7,4 @@ import org.springframework.transaction.annotation.Transactional
 
 @Repository
 @Transactional
-interface DiaryRepository : JpaRepository<Diary, Int> {
-
-}
+interface DiaryRepository : JpaRepository<Diary, Int>

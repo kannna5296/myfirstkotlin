@@ -6,4 +6,5 @@ data class CreateDiaryRequest(
     @Size(max = 50)
     var authorName: String,
     @Size(max = 140)
-    var content: String)
+    var content: String
+)

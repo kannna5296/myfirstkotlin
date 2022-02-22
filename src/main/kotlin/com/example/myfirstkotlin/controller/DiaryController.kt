@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class DiaryController(private val diaryService: DiaryService) {
 
-    //TODO ページング
+    // TODO ページング
     @GetMapping("diary")
     fun getDiaryList(): ResponseEntity<GetDiaryListResponse> {
         return ResponseEntity.ok(GetDiaryListResponse(diaryService.getDiaryList()))
