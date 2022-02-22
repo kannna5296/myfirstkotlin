@@ -31,4 +31,8 @@ class DiaryServiceImpl(private val diaryRepository: DiaryRepository) : DiaryServ
         diaryRepository.save(diary)
         return diary
     }
+
+    override fun delete(id: Int) {
+        diaryRepository.deleteById(id)
+    }
 }

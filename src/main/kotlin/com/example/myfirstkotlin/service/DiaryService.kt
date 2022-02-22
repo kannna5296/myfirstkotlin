@@ -11,4 +11,6 @@ interface DiaryService {
     fun create(req: CreateDiaryRequest): Diary
 
     fun update(req: UpdateDiaryRequest): Diary
+
+    fun delete(id: Int)
 }
