@@ -25,7 +25,8 @@ class DiaryServiceImpl(private val diaryRepository: DiaryRepository) : DiaryServ
     }
 
     override fun update(req: UpdateDiaryRequest): Diary {
-        var diary = diaryRepository.findById(req.id).orElseThrow { NotFoundException("投稿が見つかりません。") }
+        //論理チェック
+        var diary = diaryRepository.findById(req.id).orElseThrow { NotFoundException("指定した投稿は存在しません。") }
         diary.content = req.content
         diary.updatedAt = Timestamp(System.currentTimeMillis())
         diaryRepository.save(diary)
@@ -33,6 +34,8 @@ class DiaryServiceImpl(private val diaryRepository: DiaryRepository) : DiaryServ
     }
 
     override fun delete(id: Int) {
+        //論理チェック
+        diaryRepository.findById(id).orElseThrow { NotFoundException("指定した投稿は存在しません。") }
         diaryRepository.deleteById(id)
     }
 }
