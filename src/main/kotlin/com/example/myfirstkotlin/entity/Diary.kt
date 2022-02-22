@@ -3,26 +3,18 @@ package com.example.myfirstkotlin.entity
 import lombok.Getter
 import lombok.Setter
 import java.sql.Timestamp
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 import javax.validation.constraints.Size
 
 @Entity
 @Table(name = "diary")
 class Diary(
-    @Id
-    @GeneratedValue
-    var id: Int?,
-    @Size(max = 50)
     var authorName: String,
-    @Size(max = 140)
-    var content: String,
-    var createdAt: Timestamp?,
-    var updatedAt: Timestamp?) {
+    var content: String) {
 
-//    constructor(authorName: String, content: String) : this(authorName, content, null, ) {
-//
-//    }
+    var createdAt: Timestamp? = null
+    var updatedAt: Timestamp? = null
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Int? = null
 }

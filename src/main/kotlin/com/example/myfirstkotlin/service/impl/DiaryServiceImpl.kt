@@ -15,7 +15,7 @@ class DiaryServiceImpl(private val diaryRepository: DiaryRepository) : DiaryServ
     }
 
     override fun create(req: CreateDiaryRequest): Diary {
-        var diary = Diary(null,req.authorName,req.content,null,null)
+        var diary = Diary(req.authorName,req.content)
         diary.createdAt = Timestamp(System.currentTimeMillis())
         diary.updatedAt = Timestamp(System.currentTimeMillis())
         diaryRepository.save(diary)
