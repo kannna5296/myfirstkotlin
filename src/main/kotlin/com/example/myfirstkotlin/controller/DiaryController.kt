@@ -1,11 +1,14 @@
 package com.example.myfirstkotlin.controller
 
 import com.example.myfirstkotlin.request.CreateDiaryRequest
+import com.example.myfirstkotlin.request.UpdateDiaryRequest
 import com.example.myfirstkotlin.response.CreateDiaryResponse
 import com.example.myfirstkotlin.response.GetDiaryListResponse
+import com.example.myfirstkotlin.response.UpdateDiaryResponse
 import com.example.myfirstkotlin.service.DiaryService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -18,8 +21,13 @@ class DiaryController(private val diaryService: DiaryService) {
         return ResponseEntity.ok(GetDiaryListResponse(diaryService.getDiaryList()))
     }
 
-    @PutMapping("diary")
+    @PostMapping("diary")
     fun createDiary(req: CreateDiaryRequest): ResponseEntity<CreateDiaryResponse> {
         return ResponseEntity.ok(CreateDiaryResponse(diaryService.create(req)))
+    }
+
+    @PutMapping("diary")
+    fun updateDiary(req: UpdateDiaryRequest): ResponseEntity<UpdateDiaryResponse> {
+        return ResponseEntity.ok(UpdateDiaryResponse(diaryService.update(req)))
     }
 }
